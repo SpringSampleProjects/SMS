@@ -1,2 +1,2 @@
 # SMS
-Student Management System sample project is a sample project using for practicing frontend, backend, database, CICD and deploying technologies.  
+Student Management System(SMS) is a sample project using for practicing frontend, backend, security, database, CICD and deploying technologies.  
