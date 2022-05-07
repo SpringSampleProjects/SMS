@@ -15,6 +15,7 @@ public class EmailConfiguration {
     @Autowired
     private EmailConfigDto emailConfigDto;
 
+    // Create a mail sender bean
     @Bean
     public JavaMailSender getMailSender(){
         JavaMailSenderImpl javaMailSenderImpl = new JavaMailSenderImpl();

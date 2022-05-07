@@ -1,7 +1,9 @@
 package com.ce.spring.sms.service.impl;
 
 import com.ce.spring.sms.domain.entity.*;
+import com.ce.spring.sms.domain.request.EmailRequestModel;
 import com.ce.spring.sms.repository.*;
+import com.ce.spring.sms.service.EmailService;
 import com.ce.spring.sms.utility.GeneratedSequenceNumber;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -35,6 +37,8 @@ public class DbInit implements CommandLineRunner {
     private StudentSectionRepository studentSectionRepository;
     @Autowired
     private TeacherCourseSectionRepository teacherCourseSectionRepository;
+    @Autowired
+    private EmailService emailService;
 
     @Override
     public void run(String... args) throws Exception {
@@ -124,5 +128,8 @@ public class DbInit implements CommandLineRunner {
 
         List<TeacherCourseSectionEntity> teacherCourseSectionEntities = Arrays.asList(tcs1,tcs2,tcs3,tcs4,tcs5,tcs6,tcs7,tcs8,tcs9);
         teacherCourseSectionRepository.saveAll(teacherCourseSectionEntities);
+
+        EmailRequestModel e1 = new EmailRequestModel("js@test.com","mt@test.com","Test Email 1","Sending email from John Smith to Moges Teklemariam");
+        emailService.sendingEmail(e1);
     }
 }
